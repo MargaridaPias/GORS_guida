@@ -1,2 +1,1 @@
 # GORS_guida
-d
