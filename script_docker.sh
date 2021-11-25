@@ -14,5 +14,12 @@ sudo docker run --name my-nginx -v /home/gors/html:/usr/share/nginx/html:ro -p 8
 sudo docker pull sitespeedio/browsertime
 sudo docker run --shm-size=1g --rm -v "$(pwd)":/browsertime sitespeedio/browsertime http://192.168.109.151:8080
 
+#Nagios
+sudo chmod 666 /var/run/docker.sock
+docker pull jasonrivers/nagios:latest
+docker run --name nagios4 -d -v /home/gors/html:/usr/share/nagios -p 192.168.109.151:8080:80 jasonrivers/nagios:latest
+
+#todo: adicionar host ao nagios
+
 #mudar para outro
 # ssh -i /home/gors/g.rsa.txt 192.168.109.152
